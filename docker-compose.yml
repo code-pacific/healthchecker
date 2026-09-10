@@ -1,0 +1,12 @@
+services:
+  health-checker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    container_name: health-checker
+
+    ports:
+      - "3115:3115"
+
+    restart: unless-stooped

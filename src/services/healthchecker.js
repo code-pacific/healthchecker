@@ -1,10 +1,20 @@
+import axios from "axios"
+import { checkServers } from "../config.js"
+
 class HealthChecker {
-    async sajaHealth() {
+    async checkHealth(api) {
+        
         try {
-            const response = await fetch("https://api.saja.biz/saja/checkHealth")
-            return true
+            const response = await axios.get(api, {
+                timeout: 10000
+            })
+            if (response.status >= 200 && response.status <= 300) {
+                return true
+            }
+            else {
+                return true
+            }
         } catch (error) {
-            console.log("error",error)
             return false
         }
     }

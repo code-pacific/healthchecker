@@ -15,9 +15,21 @@ export const sendMail = (stoppedServer) => {
     const mailOptns = {
         from: senderMailId,
         to: mailIds.join(","),
-        subject: `Alert ${stoppedServer} has stopped`,
-        text: `${stoppedServer} Server Stopped Please check`
-    }
+        subject: `🚨 Server Down Alert: ${stoppedServer}`,
+        text: `
+        Server Down Alert
+
+        The following server is currently unavailable:
+
+        Server: ${stoppedServer}
+        Status: DOWN
+        Detected At: ${new Date().toLocaleString()}
+
+        Please check the server and take the necessary action to restore the service.
+
+        This is an automated alert from the Health Monitoring Service.
+        `.trim()
+    };
 
     try {
         transporter.sendMail(mailOptns, function (error, info) {
