@@ -9,4 +9,4 @@ services:
     ports:
       - "3115:3115"
 
-    restart: unless-stooped
+    restart: unless-stopped
