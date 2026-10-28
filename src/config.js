@@ -7,5 +7,9 @@ export const checkServers = [
     {
         name: "saja",
         api: "https://api.saja.biz/saja/checkHealth"
+    },
+        {
+        name: "saja-python-job",
+        api: "http://saja.biz:8000/api/health/"
     }
 ]
